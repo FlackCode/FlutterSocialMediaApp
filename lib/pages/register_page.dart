@@ -24,17 +24,19 @@ class RegisterPage extends StatelessWidget {
 
     if (passwordController.text == confirmPasswordController.text) {
       Navigator.pop(context);
-      try {
-        await authService.signUpWithEmailAndPassword(emailController.text,
-            passwordController.text, usernameController.text);
-      } catch (e) {
-        showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  title: Text(e.toString()),
-                ));
+      if (usernameController.text.isNotEmpty) {
+        try {
+          await authService.signUpWithEmailAndPassword(emailController.text,
+              passwordController.text, usernameController.text);
+        } catch (e) {
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    title: Text(e.toString()),
+                  ));
+        }
       }
     } else {
       showDialog(

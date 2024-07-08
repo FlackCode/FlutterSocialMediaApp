@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterauth/components/my_drawer.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class UsersPage extends StatelessWidget {
+  const UsersPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +12,13 @@ class HomePage extends StatelessWidget {
         iconTheme:
             IconThemeData(color: Theme.of(context).colorScheme.inversePrimary),
         title: Text(
-          "Home",
+          "Users Page",
           style: TextStyle(
               color: Theme.of(context).colorScheme.inversePrimary,
               fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
       ),
-      drawer: const MyDrawer(),
     );
   }
 }
